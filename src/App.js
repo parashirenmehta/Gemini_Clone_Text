@@ -7,7 +7,6 @@ import generateText from './text_generation';
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [output, setOutput] = useState('');
-  // const GOOGLE_API_KEY = 'AIzaSyA-PpxrW1W19cbtf2aoKKtoL-R6VMPPMzg';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,23 +16,6 @@ function App() {
       const prompt = document.getElementById('prompt').value;
       const responseText = await generateText(prompt);
       setOutput(responseText);
-      // const requestBody = {
-      //   prompt: e.target.prompt.value
-      // };
-      // const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=' + GOOGLE_API_KEY, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     // 'Authorization': `Bearer ${GOOGLE_API_KEY}`
-      //   },
-      //   body: JSON.stringify(requestBody),
-      //   // credentials: 'same-origin',
-      //   // mode: 'cors',
-      //   // referrerPolicy: 'strict-origin-when-cross-origin'
-      // });
-      // console.log(response);
-      // const data = await response.json();
-      // setOutput(data.text);
     }
     catch (error) {
       setOutput('Error: ' + error.message);
